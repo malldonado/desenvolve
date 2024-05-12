@@ -1,0 +1,735 @@
+html,
+body {
+    height: auto !important;
+    overflow-x: hidden !important;
+    padding-right: 0 !important;
+    padding: 0 !important;
+}
+
+.body {
+    height: auto !important;
+    overflow-x: hidden !important;
+    padding-right: 0 !important;
+    padding: 0 !important;
+}
+
+/* PALETA DE CORES */
+
+.verde_claro {
+    color: #00CE81 !important;
+}
+
+.verde_escuro {
+    color: #27AE60 !important;
+}
+
+.azul_claro {
+    color: #76A9FF !important;
+}
+
+.transparent {
+    color: transparent !important;
+}
+
+
+/* .btn-outline-success {
+    color: #27AE60 !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #27AE60 !important;
+} */
+
+
+/* MENU LATERAL */
+
+.accordion_custom .card {
+    border: 0;
+    border-radius: 0;
+    padding: 2px 0;
+}
+
+.accordion_custom .card-header {
+    padding: 5px;
+    background-color: transparent;
+    border: 0;
+}
+
+.accordion_custom .card-header h5 a {
+    display: flex;
+}
+
+.accordion_custom .card-header h5 a:hover {
+    text-decoration: none;
+}
+
+.accordion_custom .card-header h5 a span {
+    align-self: center;
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+}
+
+.accordion_custom .card-body {
+    padding: 0 0 0 10px;
+}
+
+
+/* PALETA DE CORES */
+
+.verde_claro {
+    color: #00CE81;
+}
+
+.verde_escuro {
+    color: #27AE60;
+}
+
+.green-dark-background:hover {
+    background: #27AE60;
+    color: #fff !important;
+}
+
+.azul_claro {
+    color: #76A9FF;
+}
+
+
+/* PAINEL DE PERGUNTAS */
+
+.questions {
+    padding: 13px 0px;
+}
+
+.item-question {
+    padding: 15px;
+    border: 1px solid transparent;
+}
+
+.item-question:hover {
+    border: 1px solid rgb(194, 194, 194);
+    background-color: rgb(240, 240, 240);
+}
+
+.item-question p {
+    margin-bottom: 5px;
+}
+
+a {
+    color: #000;
+    font-weight: 900;
+}
+
+a:hover {
+    color: #00CE81;
+}
+
+.votes,
+.responses {
+    color: #00CE81;
+}
+
+
+/* NAVBAR */
+
+nav {
+  height: 55px !important;
+}
+
+.modal-dialog {
+    width: 450px !important;
+}
+
+.modal-open {
+    padding-right: 0 !important;
+}
+
+.modal-backdrop.show {
+    opacity: .7;
+}
+
+.modal.fade.show {
+    padding-right: 0 !important;
+}
+
+.navbar {
+    margin: 0 0 2% 0;
+    background-color: #27AE60!important;
+}
+
+.logo-img {
+    width: 120px;
+}
+
+.dropdown-item:hover {
+    background: #27AE60;
+    color: #fff;
+}
+
+.bg-light {
+  background-color: #27AE60!important;
+}
+
+.nav-link {
+    color: #000 !important;
+    font-weight: 600 !important;
+}
+
+.nav-link:hover {
+    color: #27AE60 !important;
+}
+
+.btn-outline-success-search {
+    width: 60px !important;
+}
+
+.btn-outline-success-account {
+    margin: 0 5px;
+}
+
+.icon-language {
+    margin: 0 0 0 5px;
+}
+
+.icon-social-media {
+    margin: 0 5px 0 0;
+}
+
+.card-img-top-header {
+    width: 22px;
+    height: 40px;
+    margin: 0 10px;
+    object-fit: cover;
+}
+
+.card-user {    
+    border-radius: 100%;
+    padding: 0;
+    top: 8px;
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    right: 10px;
+    position: absolute;
+    background-color: #fff;
+}
+
+.form-inline {
+    margin-bottom: 0!important;
+    margin: 0 40px;
+}
+
+
+/* MODAL LOGIN*/
+.modal-login {
+    height: 500px;
+    margin: auto;
+}
+
+.modal-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    margin: 0 auto;
+    font-weight: 800;
+    left: 0;
+    text-align: center !important;
+}
+
+.modal-title-register {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    margin: 0 auto;
+    font-weight: 800;
+    left: 0;
+    text-align: center !important;
+}
+
+.modal-title-confirmation {
+    font-size: 20px !important;
+}
+
+.modal-login-dialog {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    top: 0;
+    height: 500px;
+    right: 0;
+    left: 0;
+}
+
+.modal-login-dialog .modal-content {
+    width: 70%;
+    display: flex;
+    position: relative;
+    right: 0;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.sing-in-img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sing-in-img-logo {
+    position: absolute;
+    z-index: 1;
+    height: 30px;
+    margin: 0 auto;
+    right: 0;
+    top: 20px;
+    left: 0;
+}
+
+.sign-in-button-close {
+    top: 5px;
+    position: absolute;
+    right: 8px;
+    color: #28a745;
+    text-shadow: 0 1px 0 #28a745;
+}
+
+.modal-header {
+    padding: 0 !important;
+    border-bottom: none !important;
+}
+
+.modal-body {
+    position: absolute;
+    top: 100px;
+    width: 90%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
+.modal-body-register {
+    top: 120px !important;
+}
+
+.login-input {
+    opacity: .7;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.sign-in-button {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    width: 100%;
+    margin: 0px 0 20px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    padding: 8px;
+}
+
+.button-sign-in:hover {
+    opacity: .7;
+    transition: all .2s ease-in-out;
+}
+
+.btn.btn-outline-dark:hover {
+    background: none !important;
+    color: #000 !important;
+}
+
+.sign-in-button-google {
+    width: 100%;
+    margin: 5px 0;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+}
+
+.p-sign-in {
+    font-size: 17px;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.p-sign-in span {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.span-confirmation {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    margin: 0 auto;
+    font-weight: 800;
+    left: 0;
+    text-align: center !important;
+}
+
+
+/* TELA DE RESPOSTAS DA PERGUNTA */
+
+.pergunta-usuario {
+    padding: 20px;
+}
+
+.pergunta-usuario .votos-pergunta {
+    margin-bottom: 15px;
+}
+
+.resposta-pergunta {
+    padding: 20px;
+}
+
+.resposta-pergunta .votos-respostas {
+    margin-bottom: 15px;
+}
+
+#btn-responder {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#btn-responder span.material-icons {
+    align-self: center;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.material-icons:hover {
+    color: #28a745;
+}
+
+
+/* DADOS USUARIO */
+.linhaAlterarSenha {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-dark {
+    background-color: #218838 !important;
+    border-color: #218838 !important;
+}
+
+.btn-dark:not(:disabled):not(.disabled).active:focus,
+.btn-dark:not(:disabled):not(.disabled):active:focus,
+.show>.btn-dark.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, .5) !important;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background:#27AE60;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    padding: 0;
+    color: #fff !important;
+}
+
+.footer ul li a {
+    color: #fff !important;
+    font-weight: 200;
+}
+
+.footer-logo {
+    width: 120px;
+    position: absolute;
+    top: -13px;
+    height: 33px;
+    margin: 0px 20px;
+}
+
+.footer-text {
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px 10px 0 10px;
+}
+
+
+/* PROFILE */
+
+.title-profile {
+    text-align: left;
+    margin: 40px 0 0 0;
+}
+
+
+/* PAGINATION */
+
+.page-item.active .page-link {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.page-link {
+    font-weight: 300 !important;
+    color: #000 !important;
+    background-color: #fff !important;
+    border: none !important;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem #00ce81 !important;
+}
+
+/* MOBILE CARD PRINCIPAL */
+
+@media (max-width: 600px) {
+    button#modal-login {
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+    .rounded-circle {
+        border-radius: 50%!important;
+        position: absolute;
+        height: 60px;
+        margin: 0 auto;
+        right: 0;
+        left: 0;
+        top: -40px;
+    }
+    .form-inline {
+        margin: 0;
+    }
+
+    .sing-in-img {
+        position: relative;
+        height: 550px !important;
+    }
+
+    /* .card {
+        height: 45px;
+        padding: 8px 0;
+        top: 5px;
+        right: 15px;
+        position: absolute;
+        border-radius: 100%;
+    } */
+    .btn-outline-success-search {
+        width: 50px !important;
+        margin: 0 5px 0 0;
+    }
+    .navbar-nav .nav-link {
+        padding-right: 0;
+        padding-left: 0;
+        margin: 20px 0 0px 0;
+    }
+    .footer-logo {
+        width: 130px;
+        position: absolute;
+        top: -10px;
+        right: 0;
+        left: 0;
+        height: 35px;
+        margin: 0 auto;
+    }
+    .footer {
+        padding: 30px;
+    }
+    .logo-img {
+      width: 115px;
+      height: 33px;
+      right: 0;
+      left: 0;
+    }
+
+    button.navbar-toggler {
+      position: absolute;
+      top: 10px;
+    }
+
+    .titulo-pergunta h3 {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    .accordion_custom .card-header h5 a {
+        display: flex;
+        margin: 0 -25px;
+    }
+    .accordion_custom .card-header h5 a span {
+        font-size: 18px;
+    }
+    #accordion {
+        float: left;
+    }
+    #btn_expand {
+        float: right;
+    }
+    .col-12.col-md {
+        padding: 30px 0;
+    }
+    .modal-content {
+        width: 90%;
+    }
+    /* PROFILE */
+    .avatar.avatar-xl {
+        width: 70px;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .row.profile {
+        margin-right: 20px !important;
+        margin-left: 15px !important;
+        margin: 100px 0;
+    }
+    .col-lg-3.profile {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    /* INDEX */
+    .row.index {
+        margin-right: 20px !important;
+        margin-left: 15px !important;
+    }
+    /* USER */
+    .badge {
+        padding: 1em 1.4em;
+        font-size: 10px;
+    }
+    .text-muted {
+        font-size: 15px;
+        line-height: 0;
+    }
+    /* RESPOSTAS */
+    .float-right {
+        margin: 0 -5px;
+        line-height: 2.3;
+    }
+    /*NAVBAR*/
+    .modal-backdrop.show {
+        opacity: 0;
+        display: none;
+    }
+
+    /*MODAL LOGIN*/
+    .modal-dialog.desenvolve-modal-login {
+        display: none;
+    }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff; /* Define a cor de fundo */
+}
+
+.navbar-brand {
+  display: block;
+}
+
+.logo-img {
+  max-width: 100px;
+  height: auto;
+}
+
+.navbar-toggler {
+  display: none; /* Esconder o botão do menu em telas maiores */
+}
+
+.navbar-collapse {
+  display: none;
+}
+
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000; /* Cor do texto */
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  margin-right: 0.5rem;
+}
+
+input.form-control {
+  outline: none;
+  margin: 0.3px 0 0 0;
+  height: 40px;
+  border: 1px solid #27ae60 !important;
+  color: #27ae60 !important;
+  font-weight: 400;
+}
+
+input.form-control::placeholder {
+  color: #27ae60 !important;
+  opacity: 1 !important;
+}
+
+.form-control {
+  padding: 0.375rem 0.75rem;
+  width: 400px !important;
+}
+
+#perfil .form-control {
+  width: 100% !important;
+}
+
+input.form-control {
+  border: 1px solid #9e9e9e;
+}
+
+input.form-control::placeholder {
+  color: #565454;
+}
+
+#perfil .form-control {
+  width: 100% !important;
+}
+
+.btn-search,
+.btn-login {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #000; /* Cor do texto */
+}
+
+@media (max-width: 600px) {
+  .form-control {
+    width: 200px !important;
+    margin: 0 5px 0 0;
+  }
+}
