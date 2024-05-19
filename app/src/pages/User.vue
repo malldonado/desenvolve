@@ -1,20 +1,19 @@
 <template>
+  <div>
     <Navbar />
     <User />
-    <Pagination />
-  </template>
-<script>
+  </div>
+</template>
 
+<script>
 import Navbar from '../components/navbar/Navbar.vue';
-import Pagination from '../components/pagination/Pagination.vue';
-import User from '../components/user/User.vue';
+import UserComponent from '../components/user/User.vue';
 
 export default {
-  name: "User",
+  name: "UserPage",
   components: {
     Navbar,
-    User,
-    Pagination,
+    User: UserComponent,
   },
 };
 </script>

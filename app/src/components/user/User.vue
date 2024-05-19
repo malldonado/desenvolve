@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center" id="perfil">
             <div class="__container-profile col-12 col-lg-12 mx-auto">
-                <h2 class="__page-title h3 mb-4">Profile</h2>
+
                 <div class="my-4">
                     <div class="__user-main row mt-5 align-items-center justify-content-start">
                         <div class="__avatar col-md-1 text-center mb-4">
@@ -11,12 +11,13 @@
                         <div class="col __user-element">
                             <div class="row align-items-center">
                                 <div class="col-md-6">
-                                    <h4 class="mb-1 mt-2">Heber Gustavo</h4>
+                                    <h4 class="mb-1 mt-2"><strong>Matheus Maldonado</strong></h4>
                                 </div>
                             </div>
+
                             <div class="row mb-4">
                                 <div class="col">
-                                    <p class="small mb-0 text-muted">@hebergustavo</p>
+                                    <p class="small mb-0 text-muted">@matheusmaldonado</p>
                                 </div>
                             </div>
                         </div>
@@ -57,12 +58,6 @@
         </div>
     </div>
 </template>
+
 <script>
-// export default {
-//   methods: {
-//     redirectToHome() {
-//       this.$router.push('/user');
-//     }
-//   }
-// }
 </script>

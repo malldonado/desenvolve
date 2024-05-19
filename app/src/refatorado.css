@@ -1,33 +1,33 @@
-/* Main Elements  */
+/* Main Elements */
 :root {
-  --transparent: transparent;
-  --white: #fff;
   --black: #000;
-  --red: #ff5733;
-  --green: #33ff57;
   --blue: #5733ff;
-  --pink: #ff33a6;
-  --light-blue: #33a6ff;
-  --light-green: #a6ff33;
-  --orange: #ffa633;
+  --cyan-green: #00ce81;
   --dark-blue: #3363ff;
-  --light-red: #ff3333;
-  --teal: #33ffdd;
-  --dark-red: #ff3333;
   --dark-green: #33ff93;
+  --dark-orange: #ffa633;
+  --dark-pink: #ff33a6;
+  --dark-red: #ff3333;
+  --dark-teal: #3363ff;
+  --denin-blue: #3367b5;
+  --green: #33ff57;
+  --gunmetal: #4a5568;
+  --light-blue: #33a6ff;
+  --light-gray: #dfdfdf;
+  --light-green: #a6ff33;
   --light-purple: #a633ff;
   --light-teal: #33ffdd;
-  --dark-orange: #ffa633;
-  --dark-teal: #3363ff;
+  --lighter-blue: #33a6ff;
+  --orange: #ffa633;
+  --pink: #ff33a6;
+  --red: #ff5733;
+  --silver-gray: #cbd5e0;
   --sky-blue: #467bcb;
   --sky-blue-light: #c9d8f0;
-  --dark-pink: #ff33a6;
-  --lighter-blue: #33a6ff;
   --space-gray: #e2e8f0;
-  --light-gray: #dfdfdf;
-  --silver-gray: #cbd5e0;
-  --denin-blue: #3367b5;
-  --gunmetal: #4a5568;
+  --teal: #33ffdd;
+  --transparent: transparent;
+  --white: #fff;
 }
 
 * {
@@ -195,6 +195,32 @@ body {
   color: var(--black) !important;
 }
 
+.__btn-discussion ion-icon {
+  font-size: 22px !important;
+  margin-right: 5px !important;
+}
+
+.__text-title-discussion {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: var(--black) !important;
+}
+
+.__rounded-pill-language {
+  background-color: #00ce81 !important;
+  color: white !important;
+  font-size: 14px;
+}
+
+.__span-eye {
+  margin-right: 10px;
+}
+
+.__post-icon {
+  font-size: 15px;
+  margin-right: 2px;
+}
+
 .__inner-main-body,
 .__inner-sidebar-body {
   /* padding: 1rem;
@@ -227,7 +253,7 @@ body {
 
 .__simplebar-mask,
 .__simplebar-offset {
-  height: 400px !important;
+  height: 500px !important;
   overflow-y: hidden !important;
 }
 
@@ -357,6 +383,39 @@ body {
   background-color: var(--white) !important;
   color: var(--black) !important;
   border: 1px solid var(--black);
+}
+
+/* Part Login */
+
+.__container-login  {
+  overflow: hidden !important;
+  height: 100vh !important;
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.__left-login-text {
+  color: var(--white) !important;
+}
+
+.__form-login-sub input {
+  color: #000 !important;
+  border: 1px solid var(--light-gray) !important;
+}
+
+.__form-login-sub input::placeholder {
+  color: #000 !important;
+}
+
+.__form-login-sub input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.__card-login {
+  border-radius: 0px !important;
 }
 
 /* Elements of Bootstrap */
