@@ -6,7 +6,7 @@
   import Navbar from "../components/navbar/Navbar.vue";
   
   export default {
-    name: "TopicPage",
+    name: "QuestionPage",
     components: {
       Navbar,
     },

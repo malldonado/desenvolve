@@ -390,7 +390,7 @@ body {
 .__container-login  {
   overflow: hidden !important;
   height: 100vh !important;
-  background: var(--black);
+  /* background: var(--black); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -416,6 +416,31 @@ body {
 
 .__card-login {
   border-radius: 0px !important;
+  text-align: left !important;
+}
+
+.__btn-login {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+  margin-top: 20px;
+  border: 1px solid var(--black) !important;
+}
+
+.__forgot-password, .__sign-up {
+  color: var(--black) !important;
+  text-decoration: none;
+  font-weight: 700 !important;
+}
+
+.__login-title {
+  color: var(--black) !important;
+  font-weight: 700 !important;
+  font-size: 26px !important;
+  margin-bottom: 15px !important;
+}
+
+.__form-login-remember {
+  color: #000 !important;
 }
 
 /* Elements of Bootstrap */

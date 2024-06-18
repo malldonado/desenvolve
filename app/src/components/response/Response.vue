@@ -132,52 +132,16 @@
         </div>
       </div>
     </div>
-
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <h3>Topicos sugeridos</h3>
-        <div class="row">
-          <div class="col-md-12 item-pergunta">
-            <a href="resposta.html">
-              <h6>Erro de API 500 do Google Drive no plug-in Wordpress</h6>
-            </a>
-            <span class="votos">0 votos</span>
-            <span class="respostas">0 Perguntas</span>
-          </div>
-          <div class="col-md-12 item-pergunta">
-            <a href="resposta.html">
-              <h6>Erro de API 500 do Google Drive no plug-in Wordpress</h6>
-            </a>
-            <span class="votos">0 votos</span>
-            <span class="respostas">0 Perguntas</span>
-          </div>
-          <div class="col-md-12 item-pergunta">
-            <a href="resposta.html">
-              <h6>Erro de API 500 do Google Drive no plug-in Wordpress</h6>
-            </a>
-            <span class="votos">0 votos</span>
-            <span class="respostas">0 Perguntas</span>
-          </div>
-          <div class="col-md-12 item-pergunta">
-            <a href="resposta.html">
-              <h6>Erro de API 500 do Google Drive no plug-in Wordpress</h6>
-            </a>
-            <span class="votos">0 votos</span>
-            <span class="respostas">0 Perguntas</span>
-          </div>
-          <div class="col-md-12 item-pergunta">
-            <a href="resposta.html">
-              <h6>Erro de API 500 do Google Drive no plug-in Wordpress</h6>
-            </a>
-            <span class="votos">0 votos</span>
-            <span class="respostas">0 Perguntas</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    response() {},
+  },
+};
 </script>
-<style lang=""></style>
+
+<style scoped>
+/* Add your scoped styles here */
+</style>

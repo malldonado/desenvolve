@@ -15,10 +15,10 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                <h3 class="__login-title">SIGN IN</h3>
+                                    <h3 class="__login-title">REGISTER</h3>
                                 </div>
                             </div>
-                            <form @submit.prevent="login">
+                            <form @submit.prevent="registerUser">
                                 <div class="__form-login-sub row gy-3 overflow-hidden">
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
@@ -35,29 +35,21 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="__form-login-remember form-check">
-                                            <input v-model="rememberMe" class="form-check-input" type="checkbox"
-                                                value="" name="remember_me" id="remember_me">
-                                            <label class="form-check-label" for="remember_me">
-                                                Keep me logged in
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
                                         <div class="d-grid">
-                                            <button class="__btn-login btn btn-dark btn-lg" type="submit">Log in</button>
+                                            <button class="__btn-login btn btn-dark btn-lg"
+                                                type="submit">Register</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                             <div class="row">
                                 <div class="col-12">
-                                    <div
-                                        class="d-flex gap-2 gap-md-4 flex-column justify-content-md-start">
-                                        <p class="mt-4">Don't have an account? <router-link to="/register" class="__sign-up">Sign
-                                            up</router-link></p>
-                                            
-                                        <router-link class="__forgot-password" to="/forgot-password">Forgot your password?</router-link>
+                                    <div class="d-flex gap-2 gap-md-4 flex-column justify-content-md-start">
+                                        <p class="mt-4">Already have an account? <router-link to="/register"
+                                                class="__sign-up">Login</router-link></p>
+
+                                        <router-link class="__forgot-password" to="/forgot-password">Forgot your
+                                            password?</router-link>
                                     </div>
                                 </div>
                             </div>
@@ -70,6 +62,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
@@ -79,13 +72,15 @@ export default {
         };
     },
     methods: {
-        login() {
-            // Implement your login logic here
+        async registerUser() {
+            try {
+                const response = await axios.post('http://localhost/desenvolve/api/register.php', this.user);
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
         }
     }
 };
 </script>
 
-<style scoped>
-/* Add your scoped styles here */
-</style>
