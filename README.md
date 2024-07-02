@@ -23,7 +23,7 @@
 ### Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/desenvolve.git
+git clone https://github.com/malldonado/desenvolve.git
 ```
 
 ## Backend Setup
@@ -31,7 +31,7 @@ git clone https://github.com/your-username/desenvolve.git
 Navigate to the backend directory:
 
 ```bash
-cd desenvolve/backend
+cd desenvolve/api
 ```
 
 ### Install PHP Dependencies
@@ -69,7 +69,7 @@ To set up the frontend of the application, follow these steps:
 1. Navigate to the frontend directory:
 
 ```bash
-cd ../frontend
+cd ../app
 ```
 
 ### Install JavaScript Dependencies
