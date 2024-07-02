@@ -34,79 +34,79 @@ Navigate to the backend directory:
 cd desenvolve/backend
 ```
 
-### Instalar Dependências PHP
+### Install PHP Dependencies
 
-Para instalar as dependências PHP, execute o seguinte comando:
+To install PHP dependencies, run the following command:
 
 ```bash
 composer install
 ```
 
-### Configurar e Migrar Banco de Dados
+### Configure and Migrate Database
 
-Antes de executar sua aplicação, siga estes passos:
+Before running your application, follow these steps:
 
-1. Configure seu arquivo `.env` com as configurações do seu banco de dados.
+1. Configure your `.env` file with your database settings.
 
-2. Para migrar as tabelas necessárias para o banco de dados, execute o seguinte comando:
+2. To migrate the necessary tables to the database, run the following command:
 
 ```bash
 php artisan migrate
 ```
 
-### Iniciar o Servidor Laravel
+### Start Laravel Server
 
-Para iniciar o servidor Laravel localmente, execute o seguinte comando:
+To start the Laravel server locally, run the following command:
 
 ```bash
 php artisan serve
 ```
 
-### Configuração do Frontend
+### Frontend Setup
 
-Para configurar o frontend da aplicação, siga estes passos:
+To set up the frontend of the application, follow these steps:
 
-1. Navegue até o diretório do frontend:
+1. Navigate to the frontend directory:
 
 ```bash
 cd ../frontend
 ```
 
-### Instalar Dependências JavaScript
+### Install JavaScript Dependencies
 
-Antes de executar o frontend da aplicação, instale as dependências JavaScript necessárias executando o seguinte comando:
+Before running the frontend of the application, install the necessary JavaScript dependencies by running the following command:
 
 ```bash
 npm install
 ```
 
-### Iniciar Servidor de Desenvolvimento Vite.js
+### Start Vite.js Development Server
 
-Para iniciar o servidor de desenvolvimento Vite.js, execute o seguinte comando:
+To start the Vite.js development server, run the following command:
 
 ```bash
 npm run dev
 ```
 
-### Acessar a Aplicação
+### Access the Application
 
-Para acessar a aplicação:
+To access the application:
 
-- Frontend: Abra seu navegador e vá para [http://localhost:3000](http://localhost:3000).
-- Backend API: Abra seu navegador e vá para [http://localhost:8000](http://localhost:8000).
+- Frontend: Open your browser and go to [http://localhost:3000](http://localhost:3000).
+- Backend API: Open your browser and go to [http://localhost:8000](http://localhost:8000).
 
-### Uso
+### Usage
 
-Utilize a aplicação seguindo estas etapas:
+Use the application by following these steps:
 
-- Registre-se ou faça login em sua conta.
-- Publique perguntas, forneça respostas e participe de discussões.
-- Gerencie seu perfil e visualize sua atividade.
+- Register or log in to your account.
+- Post questions, provide answers, and participate in discussions.
+- Manage your profile and view your activity.
 
-### Contribuições
+### Contributions
 
-Contribuições são bem-vindas! Sinta-se à vontade para bifurcar este repositório e enviar pull requests com suas melhorias.
+Contributions are welcome! Feel free to fork this repository and submit pull requests with your improvements.
 
-### Licença
+### Licence
 
-Este projeto está licenciado sob a Licença MIT.
+This project is licensed under the MIT License..
