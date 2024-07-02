@@ -109,4 +109,4 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 ### Licence
 
-This project is licensed under the MIT License..
+This project is licensed under the MIT License.
