@@ -24,3 +24,13 @@
 
 ```bash
 git clone https://github.com/your-username/desenvolve.git
+```
+
+## Backend Setup
+
+Navigate to the backend directory:
+
+```bash
+cd desenvolve/backend
+```
+
