@@ -31,7 +31,7 @@
                                         <div class="form-floating mb-3">
                                             <label for="password" class="form-label">Password</label>
                                             <input v-model="password" type="password" class="form-control"
-                                                name="password" id="password" value="" placeholder="password" required>
+                                                name="password" id="password" placeholder="password" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -63,19 +63,26 @@
 
 <script>
 import axios from 'axios';
+
 export default {
     data() {
         return {
             email: '',
-            password: '',
-            rememberMe: false
+            password: ''
         };
     },
     methods: {
         async registerUser() {
             try {
-                const response = await axios.post('http://localhost/desenvolve/api/register.php', this.user);
+                const user = {
+                    email: this.email,
+                    password: this.password
+                };
+                const response = await axios.post('http://localhost/desenvolve/api/register.php', user);
                 console.log(response.data);
+                if (response.data.message === "successfully") {
+                    this.$router.push('/login');
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -83,4 +90,3 @@ export default {
     }
 };
 </script>
-

@@ -8,6 +8,9 @@ include './config.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
+// Adicionando logging para verificar o conteúdo de $data
+error_log(print_r($data, true));
+
 if (isset($data['email'], $data['password'])) {
     $email = $data['email'];
     $password = password_hash($data['password'], PASSWORD_BCRYPT);
@@ -16,7 +19,7 @@ if (isset($data['email'], $data['password'])) {
     $stmt->bind_param("ss", $email, $password);
 
     if ($stmt->execute()) {
-        echo json_encode(["message" => "User registered successfully"]);
+        echo json_encode(["message" => "successfully"]);
     } else {
         echo json_encode(["message" => "Error: " . $stmt->error]);
     }

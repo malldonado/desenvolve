@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
@@ -79,8 +80,22 @@ export default {
         };
     },
     methods: {
-        login() {
-            // Implement your login logic here
+        async login() {
+            try {
+                const user = {
+                    email: this.email,
+                    password: this.password
+                };
+                const response = await axios.post('http://localhost/desenvolve/api/login.php', user);
+                console.log(response.data);
+                if (response.data.message === "successfully") {
+                    this.$router.push('/');
+                } else {
+                    alert(response.data.message);
+                }
+            } catch (error) {
+                console.error(error);
+            }
         }
     }
 };
