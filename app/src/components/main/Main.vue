@@ -1,113 +1,85 @@
 <template>
   <div class="container">
-    <div class="__main-body p-0">
-      <div class="__inner-wrapper">
-        <div class="__inner-sidebar">
-          <div class="__inner-sidebar-header">
-            <button class="__btn-discussion btn has-icon btn-block" type="button" data-toggle="modal"
-              data-target="#threadModal">
+    <div class="main-body">
+      <div class="inner-wrapper">
+        <div class="inner-sidebar">
+          <div class="inner-sidebar-header">
+            <button class="btn-discussion" type="button" @click="openModal">
               <ion-icon name="add-circle-outline"></ion-icon> New Discussion
             </button>
           </div>
-          <div class="__inner-sidebar-body p-0">
-            <div class="p-3 h-100" data-simplebar="init">
-              <div class="__simplebar-wrapper">
-                <div class="__simplebar-mask">
-                  <div class="__simplebar-offset">
-                    <div class="__simplebar-content-wrapper">
-                      <div class="__simplebar-content">
-                        <nav class="__nav-pills nav-gap-y-1">
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon active">
-                            <ion-icon name="apps-outline"></ion-icon> All Threads
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="calendar-outline"></ion-icon> Popular this week
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="chatbubbles-outline"></ion-icon> Popular all time
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="checkmark-circle-outline"></ion-icon> Solved
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="close-circle-outline"></ion-icon> Unsolved
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="timer-outline"></ion-icon> No replies yet
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="help-outline"></ion-icon> Your question
-                          </a>
-                          <a href="javascript:void(0)" class="__nav-pills-sub nav-link nav-link-faded has-icon">
-                            <ion-icon name="document-outline"></ion-icon> Your answers
-                          </a>
-                        </nav>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="__simplebar-placeholder"></div>
-              </div>
-              <div class="__simplebar-horizontal">
-                <div class="__simplebar-scrollbar"></div>
-              </div>
-              <div class="__simplebar-vertical">
-                <div class="__simplebar-scrollbar"></div>
-              </div>
+          <div class="inner-sidebar-body">
+            <div class="sidebar-content">
+              <nav class="nav-pills">
+                <a href="#" class="nav-link active">
+                  <ion-icon name="apps-outline"></ion-icon> All Threads
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="calendar-outline"></ion-icon> Popular this week
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="chatbubbles-outline"></ion-icon> Popular all time
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon> Solved
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="close-circle-outline"></ion-icon> Unsolved
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="timer-outline"></ion-icon> No replies yet
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="help-outline"></ion-icon> Your question
+                </a>
+                <a href="#" class="nav-link">
+                  <ion-icon name="document-outline"></ion-icon> Your answers
+                </a>
+              </nav>
             </div>
           </div>
         </div>
-        <div class="__inner-main">
-          <div class="__inner-main-header">
-            <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#"
-              data-toggle="inner-sidebar">
+        <div class="inner-main">
+          <div class="inner-main-header">
+            <a class="nav-toggle" href="#" @click="toggleSidebar">
               <i class="material-icons">arrow_forward_ios</i>
             </a>
-            <select class="__custom-select custom-select custom-select-sm w-auto mr-1">
-              <option selected="">Latest</option>
+            <select class="custom-select">
+              <option selected>Latest</option>
               <option value="1">Popular</option>
               <option value="3">Solved</option>
               <option value="3">Unsolved</option>
               <option value="3">No Replies Yet</option>
             </select>
-            <span class="input-icon input-icon-sm ml-auto w-auto">
-              <input type="text" class="__input-search form-control form-control-sm shadow-none mb-4 mt-4"
-                placeholder="Search..." />
-            </span>
           </div>
 
-          <div class="__inner-main-body p-2 p-sm-3 collapse forum-content show">
-            <div class="card mb-2">
-              <div class="card-body p-2 p-sm-3">
-                <div class="media forum-item">
-                  <a href="#" data-toggle="collapse" data-target=".forum-content">
-                    <img src="../../assets/avatar.svg" class="mr-3 rounded-circle" width="50" alt="User" />
+          <div class="inner-main-body">
+            <div class="card">
+              <div class="card-body">
+                <div class="forum-item">
+                  <a href="#" @click="toggleCollapse">
+                    <img src="../../assets/avatar.svg" class="avatar" alt="User" />
                   </a>
-                  <div class="media-body">
+                  <div class="forum-item-body">
                     <div>
-                      <a href="#" data-toggle="collapse" data-target=".forum-content" class="text-dark">Matheus
-                        Maldonado</a>
-                      <p class="text-muted small">Publicado há 5 minutos</p>
+                      <a href="#" @click="toggleCollapse" class="user-name">Matheus Maldonado</a>
+                      <p class="post-time">Publicado há 5 minutos</p>
                     </div>
-                    <a href="#" class="__text-title-discussion"><strong>How to declare a variable in php?</strong></a>
+                    <a href="#" class="post-title"><strong>How to declare a variable in php?</strong></a>
 
-                    <p class="text-secondary small">
-
+                    <p class="post-description">
                       To declare a variable in PHP, you use the dollar sign ($) followed by the variable name and an
                       optional assignment of a value. For example:
                     </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="d-flex">
-                        <div class="__rounded-pill-language rounded-pill bg-00ce81 text-white px-2 py-1 mr-2">golang
-                        </div>
-                        <div class="__rounded-pill-language rounded-pill bg-00ce81 text-white px-2 py-1 mr-2">php</div>
-                        <div class="__rounded-pill-language rounded-pill bg-00ce81 text-white px-2 py-1 mr-2">java</div>
+                    <div class="post-meta">
+                      <div class="tags">
+                        <div class="tag">golang</div>
+                        <div class="tag">php</div>
+                        <div class="tag">java</div>
                       </div>
-                      <div class="text-muted text-center align-self-end">
-                        <span class="__span-eye d-none d-sm-inline-block">
-                          <i class="far fa-eye __post-icon"></i> 19
-                        </span>
-                        <span><i class="far fa-comment __post-icon"></i> 3</span>
+                      <div class="post-stats">
+                        <span class="views">19 views</span>
+                        <span class="comments">3 comments</span>
                       </div>
                     </div>
                   </div>
@@ -119,31 +91,28 @@
         </div>
       </div>
 
-      <div class="modal fade" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+      <div v-if="isModalOpen" class="modal">
+        <div class="modal-dialog">
           <div class="modal-content">
             <form>
-              <div class="modal-header d-flex align-items-center bg-primary text-white">
-                <h6 class="modal-title mb-0" id="threadModalLabel">New Discussion</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
+              <div class="modal-header">
+                <h6 class="modal-title">New Discussion</h6>
+                <button type="button" class="close" @click="closeModal">×</button>
               </div>
               <div class="modal-body">
                 <div class="form-group">
                   <label for="threadTitle">Title</label>
-                  <input type="text" class="form-control" id="threadTitle" placeholder="Enter title" autofocus="" />
+                  <input type="text" class="form-control" id="threadTitle" placeholder="Enter title" autofocus />
                 </div>
                 <textarea class="form-control summernote" style="display: none"></textarea>
-                <div class="custom-file form-control-sm mt-3" style="max-width: 300px">
-                  <input type="file" class="custom-file-input" id="customFile" multiple="" />
-                  <label class="custom-file-label" for="customFile">Attachment</label>
+                <div class="file-upload">
+                  <input type="file" id="customFile" multiple />
+                  <label for="customFile">Attachment</label>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Post</button>
+                <button type="button" class="btn-cancel" @click="closeModal">Cancel</button>
+                <button type="button" class="btn-submit">Post</button>
               </div>
             </form>
           </div>
@@ -154,4 +123,298 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      isModalOpen: false,
+    };
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    },
+    toggleSidebar() {
+      // Add logic to toggle sidebar visibility
+    },
+    toggleCollapse() {
+      // Add logic to toggle collapse behavior
+    },
+  },
+};
 </script>
+
+<style scoped>
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-body {
+  display: flex;
+  width: 100%;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.inner-sidebar {
+  width: 250px;
+  background-color: #fff;
+}
+
+.inner-sidebar-header {
+  padding: 1rem;
+}
+
+.btn-discussion {
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-discussion ion-icon {
+  padding-right: 5px;
+}
+
+.inner-sidebar-body {
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+}
+
+.sidebar-content {
+  padding: 1rem;
+}
+
+.nav-pills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  height: 50px;
+  padding: 0rem 10px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-link ion-icon {
+  margin-right: 10px;
+}
+
+.nav-link.active {
+  background-color: #000;
+  color: white;
+}
+
+a.nav-link:hover {
+    background: #00ce81 !important;
+    color: white !important;
+    border-radius: 0 !important;
+  }
+
+.nav-link.active ion-icon {
+  font-size: 20px;
+}
+
+.inner-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.inner-main-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.custom-select {
+  margin-right: 1rem;
+  width: 200px;
+  height: 50px;
+  outline: none !important;
+  box-shadow: #000;
+}
+
+.custom-select:focus {
+  border-color: #dddddd;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.input-icon {
+  margin-left: auto;
+}
+
+.input-search {
+  width: 200px;
+}
+
+.inner-main-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.forum-item {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 1rem;
+  width: 100px;
+}
+
+.forum-item-body {
+  flex: 1;
+}
+
+.user-name {
+  color: #343a40;
+  text-decoration: none;
+}
+
+.post-time {
+  color: #6c757d;
+}
+
+.post-title {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-description {
+  color: #6c757d;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tags {
+  display: flex;
+}
+
+.tag {
+  background-color: #00ce81;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.post-stats {
+  color: #6c757d;
+  display: flex;
+  align-items: end;
+}
+
+.post-stats .views {
+  margin-right: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-dialog {
+  background-color: white;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.file-upload {
+  margin-top: 1rem;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.modal-footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background-color: #f8f9fa;
+  color: #343a40;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+</style>
