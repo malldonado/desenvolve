@@ -169,4 +169,26 @@ export default {
 .btn-cancel {
   margin-right: 1rem;
 }
+
+@media screen and (max-width: 790px) {
+  .main-body {
+    display: block;
+  }
+
+  .inner-sidebar-header {
+    padding: 0 !important;
+  }
+
+  .card {
+    margin: 0 5px;
+  }
+
+  .post-meta {
+    display: block;
+  }
+
+  .post-stats {
+    margin-top: 15px;
+  }
+}
 </style>

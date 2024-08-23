@@ -232,4 +232,18 @@ export default {
 .forgot-password-link:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 790px) {
+  .register-left {
+    display: none !important;
+  }
+
+  .navbar-brand {
+    left: 20px;
+  }
+
+  .close {
+    right: 20px;
+  }
+}
 </style>

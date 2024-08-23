@@ -204,6 +204,10 @@ export default {
   .post-meta {
     display: block;
   }
+
+  .post-stats {
+    margin-top: 15px;
+  }
 }
 
 </style>

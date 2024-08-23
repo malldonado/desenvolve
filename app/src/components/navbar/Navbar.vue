@@ -46,6 +46,10 @@ export default {
   height: 55px;
 }
 
+.navbar-brand {
+  cursor: pointer;
+}
+
 .navbar-brand img {
   height: 34px;
 }

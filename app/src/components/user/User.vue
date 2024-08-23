@@ -151,5 +151,19 @@ export default {
 .btn-submit:hover {
     background-color: #00ce81;
 }
+
+@media screen and (max-width: 790px) {
+    .container {
+        padding: 2rem 8px;
+    }
+
+    .profile-header {
+        padding: 1rem 0 0 0;
+    }
+
+    .password-change {
+        margin-bottom: 15px; 
+    }
+}
 </style>
 
