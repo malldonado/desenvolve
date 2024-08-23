@@ -1,152 +1,235 @@
 <template>
-    <section class="container-login">
-      <div class="container">
-        <div class="row align-items-center">
-          <!-- Image Section -->
-          <div class="col-12 col-md-6">
-            <div class="image-container">
-              <img class="login-image" src="../../assets/banner.svg" alt="Banner" />
-            </div>
-          </div>
-          <!-- Form Section -->
-          <div class="col-12 col-md-6">
-            <div class="login-card">
-              <div class="card-body">
-                <h3 class="login-title">REGISTER</h3>
-                <form @submit.prevent="registerUser">
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input
-                      v-model="email"
-                      type="email"
-                      id="email"
-                      placeholder="name@example.com"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input
-                      v-model="password"
-                      type="password"
-                      id="password"
-                      placeholder="password"
-                      required
-                    />
-                  </div>
-                  <button type="submit" class="btn-submit">Register</button>
-                </form>
-                <div class="links">
-                  <p>Already have an account? <router-link to="/login" class="link">Login</router-link></p>
-                  <router-link to="/forgot-password" class="link">Forgot your password?</router-link>
-                </div>
+  <a class="navbar-brand" @click.prevent="redirectToHome">
+    <img src="../../assets/icon.svg" alt="Logo" height="34" />
+  </a>
+  <span @click="$router.push('/')" class="close">
+    <ion-icon name="close-circle-outline"></ion-icon>
+  </span>
+  <section class="container-register">
+    <div class="register-content">
+      <div class="register-left">
+        <img class="register-banner" src="../../assets/banner.svg" alt="Logo" />
+      </div>
+      <div class="register-right">
+        <div class="card-register">
+          <div class="card-body">
+            <h3 class="register-title">REGISTER</h3>
+            <form @submit.prevent="register">
+              <div class="form-group form-register">
+                <label for="email">Email</label>
+                <input
+                  v-model="email"
+                  type="email"
+                  id="email"
+                  placeholder="name@example.com"
+                  required
+                />
               </div>
-            </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  v-model="password"
+                  type="password"
+                  id="password"
+                  placeholder="password"
+                  required
+                />
+              </div>
+              <div class="form-group form-check">
+                <input v-model="rememberMe" type="checkbox" id="remember_me" />
+                <label for="remember_me">Agree with Terms & Conditions</label>
+              </div>
+              <button class="btn-register" type="submit">REGISTER</button>
+            </form>
+            <p class="signup-link">
+              I Already have an account
+              <router-link class="router-link" to="/login">Sign in</router-link>
+            </p>
           </div>
         </div>
       </div>
-    </section>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        email: '',
-        password: ''
-      };
-    },
-    methods: {
-      async registerUser() {
-        try {
-          const user = { email: this.email, password: this.password };
-          const response = await axios.post('http://localhost/desenvolve/api/register.php', user);
-          if (response.data.message === "successfully") {
-            this.$router.push('/login');
-          }
-        } catch (error) {
-          console.error('Registration error:', error);
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  methods: {
+        redirectToHome() {
+            this.$router.push('/');
         }
-      }
     }
-  };
-  </script>
-  
-  <style scoped>
-  .container-login {
-    padding: 3rem 1rem;
-  }
-  
-  .image-container {
-    display: flex;
-    justify-content: center;
-    background-color: #007bff; /* Primary color */
-    padding: 1rem;
-  }
-  
-  .login-image {
-    max-width: 100%;
-    border-radius: 0.5rem;
-  }
-  
-  .login-card {
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    background-color: #fff;
-  }
-  
-  .login-title {
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #555;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-  }
-  
-  .btn-submit {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .btn-submit:hover {
-    background-color: #0056b3;
-  }
-  
-  .links {
-    margin-top: 1rem;
-  }
-  
-  .link {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .link:hover {
-    text-decoration: underline;
-  }
-  </style>
-  
+};
+</script>
+
+<style scoped>
+.navbar-brand {
+  position: absolute;
+  left: 50px;
+  top: 20px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  z-index: 999;
+  opacity: 1;
+}
+
+.close ion-icon {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.navbar-brand img {
+  height: 40px;
+  opacity: 1 !important;
+}
+
+.close ion-icon:hover {
+  opacity: 1 !important;
+  color: #00da88 !important;
+}
+
+.container-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Adjust to match your design */
+}
+
+.register-content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.register-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-banner {
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.register-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-register {
+  background-color: white;
+  border-radius: 0px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 470px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 0px;
+  outline: none !important;
+}
+
+.form-group.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.form-group.form-register {
+  margin-bottom: 20px;
+}
+
+.form-group.form-check input#remember_me {
+  margin-right: 5px;
+  width: 15px;
+}
+
+.form-group.form-check label {
+  font-size: 14px;
+  line-height: 1;
+  padding-top: 3px;
+}
+
+.btn-register {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 0px;
+  font-size: 16px;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.signup-link {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-bottom: 10px !important;
+}
+
+.signup-link .router-link {
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.forgot-password-link {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+</style>

@@ -93,7 +93,7 @@
     color: #000;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 0px !important;
     cursor: pointer;
   }
   

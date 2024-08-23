@@ -1,4 +1,10 @@
 <template>
+    <a class="navbar-brand" @click.prevent="redirectToHome">
+        <img src="../../assets/icon.svg" alt="Logo" height="34" />
+    </a>
+    <span @click="$router.push('/')" class="close">
+        <ion-icon name="close-circle-outline"></ion-icon>
+    </span>
     <section class="container-login">
         <div class="login-content">
             <div class="login-left">
@@ -9,7 +15,7 @@
                     <div class="card-body">
                         <h3 class="login-title">SIGN IN</h3>
                         <form @submit.prevent="login">
-                            <div class="form-group">
+                            <div class="form-group form-login">
                                 <label for="email">Email</label>
                                 <input v-model="email" type="email" id="email" placeholder="name@example.com" required>
                             </div>
@@ -17,14 +23,18 @@
                                 <label for="password">Password</label>
                                 <input v-model="password" type="password" id="password" placeholder="password" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group form-check">
                                 <input v-model="rememberMe" type="checkbox" id="remember_me">
                                 <label for="remember_me">Keep me logged in</label>
                             </div>
-                            <button class="btn-login" type="submit">Log in</button>
+                            <button class="btn-login" type="submit">LOG IN</button>
                         </form>
-                        <p class="signup-link">Don't have an account? <router-link to="/register">Sign up</router-link></p>
-                        <router-link class="forgot-password-link" to="/forgot-password">Forgot your password?</router-link>
+                        <p class="signup-link">
+                            Don't have an account?
+                            <router-link to="/register" class="router-link">Sign up</router-link>
+                        </p>
+                        <router-link class="forgot-password-link" to="/forgot-password">Forgot your
+                            password?</router-link>
                     </div>
                 </div>
             </div>
@@ -34,38 +44,50 @@
 
 
 <script>
-import axios from 'axios';
 export default {
-    data() {
-        return {
-            email: '',
-            password: '',
-            rememberMe: false
-        };
-    },
+    name: 'Login',
     methods: {
-        async login() {
-            try {
-                const user = {
-                    email: this.email,
-                    password: this.password
-                };
-                const response = await axios.post('http://localhost/desenvolve/api/login.php', user);
-                console.log(response.data);
-                if (response.data.message === "successfully") {
-                    this.$router.push('/');
-                } else {
-                    alert(response.data.message);
-                }
-            } catch (error) {
-                console.error(error);
-            }
+        redirectToHome() {
+            this.$router.push('/');
         }
     }
 };
 </script>
 
 <style scoped>
+.navbar-brand {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    z-index: 999;
+}
+
+.close {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    z-index: 999;
+    opacity: 1;
+}
+
+.close ion-icon {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    cursor: pointer;
+}
+
+.navbar-brand img {
+    height: 40px;
+    opacity: 1 !important;
+}
+
+.close ion-icon:hover {
+    opacity: 1 !important;
+    color: #00da88 !important;
+}
 
 .container-login {
     display: flex;
@@ -73,7 +95,8 @@ export default {
     align-items: center;
     padding: 20px;
     min-height: 100vh;
-    background-color: #f8f9fa; /* Adjust to match your design */
+    background-color: #f8f9fa;
+    /* Adjust to match your design */
 }
 
 .login-content {
@@ -90,7 +113,7 @@ export default {
 }
 
 .login-banner {
-    max-width: 100%;
+    max-width: 500px;
     height: auto;
     border-radius: 8px;
 }
@@ -104,11 +127,11 @@ export default {
 
 .card-login {
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
     padding: 20px;
     width: 100%;
     max-width: 400px;
+    height: 470px;
 }
 
 .card-body {
@@ -136,40 +159,74 @@ export default {
     width: 100%;
     padding: 10px;
     border: 1px solid #ced4da;
-    border-radius: 4px;
+    border-radius: 0px;
+    outline: none !important;
 }
+
+.form-group.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.form-group.form-login {
+    margin-bottom: 20px;
+}
+
+.form-group.form-check input#remember_me {
+    margin-right: 5px;
+    width: 15px;
+}
+
+.form-group.form-check label {
+    font-size: 14px;
+    line-height: 1;
+    padding-top: 3px;
+}
+
 
 .btn-login {
     width: 100%;
-    padding: 10px;
-    background-color: #343a40;
+    padding: 12px;
+    background-color: #000;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0px;
     font-size: 16px;
+    border: 1px solid #000;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-login:hover {
-    background-color: #495057;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
 }
 
 .signup-link {
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+    font-size: 14px;
+    margin-bottom: 10px !important;
+}
+
+.signup-link .router-link {
+    color: #000 !important;
+    font-weight: 700;
 }
 
 .forgot-password-link {
     display: block;
-    text-align: center;
-    margin-top: 10px;
-    color: #007bff;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
     text-decoration: none;
 }
 
 .forgot-password-link:hover {
     text-decoration: underline;
 }
-
-
 </style>

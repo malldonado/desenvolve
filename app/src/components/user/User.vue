@@ -15,7 +15,11 @@
                     <form @submit.prevent="updateUser" class="form">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" v-model="email" placeholder="joao_kleber@gmail.com" />
+                            <input type="email" id="email" v-model="email" placeholder="email@example.com" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Username</label>
+                            <input type="email" id="email" v-model="email" placeholder="username" />
                         </div>
                         <div class="password-change">
                             <div class="password-group">
@@ -38,47 +42,9 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
-    data() {
-        return {
-            email: '',
-            password: '',
-            confirmPassword: ''
-        };
-    },
-    mounted() {
-        this.getUser();
-    },
-    methods: {
-        async getUser() {
-            try {
-                const response = await axios.get('http://localhost/desenvolve/api/user.php');
-                const user = response.data;
-                this.email = user.email; // Atualiza o valor do email no input
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-            }
-        },
-        async updateUser() {
-            if (this.password !== this.confirmPassword) {
-                alert("Passwords do not match!");
-                return;
-            }
 
-            try {
-                const userData = {
-                    email: this.email,
-                    password: this.password
-                };
-                const response = await axios.post('http://localhost/desenvolve/api/user.php', userData);
-                console.log('User updated:', response.data);
-            } catch (error) {
-                console.error('Error updating user data:', error);
-            }
-        }
-    }
 }
 </script>
 
@@ -86,7 +52,7 @@ export default {
 .container {
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 .profile {
@@ -94,11 +60,11 @@ export default {
 }
 
 .profile-container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 2rem;
     border: 1px solid #ddd;
-    border-radius: 0.25rem;
+    border-radius: 0rem;
     background-color: #fff;
 }
 
@@ -156,7 +122,7 @@ export default {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
-    border-radius: 0.25rem;
+    border-radius: 0;
 }
 
 .password-change {
@@ -173,17 +139,17 @@ export default {
 }
 
 .btn-submit {
-    background-color: #28a745;
+    background-color: #000;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.25rem;
+    border-radius: 0;
     cursor: pointer;
     font-size: 1rem;
 }
 
 .btn-submit:hover {
-    background-color: #218838;
+    background-color: #00ce81;
 }
 </style>
 
