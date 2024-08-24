@@ -3,16 +3,18 @@
       <div class="card">
         <div class="card-body">
           <div class="forum-item">
-            <a href="#" @click="toggleCollapse">
+            <a href="#" @click.prevent="toRedirectUser">
               <img src="../../assets/avatar.svg" class="avatar" alt="User" />
             </a>
             <div class="forum-item-body">
               <div>
-                <a href="#" @click="toggleCollapse" class="user-name">Matheus Maldonado</a>
+                <a class="user-name" href="#" @click.prevent="toRedirectUser">Matheus Maldonado</a>
                 <p class="post-time">Publicado há 5 minutos</p>
               </div>
-              <a href="#" class="post-title"><strong>How to declare a variable in PHP?</strong></a>
-              <p class="post-description">
+              <a href="#" @click.prevent="toRedirectResponse" class="post-title">
+                <strong>How to declare a variable in PHP?</strong>
+              </a>
+              <p href="#" @click.prevent="toRedirectResponse" class="post-description">
                 To declare a variable in PHP, you use the dollar sign ($) followed by the variable name and an
                 optional assignment of a value. For example:
               </p>
@@ -23,7 +25,7 @@
                   <div class="tag">java</div>
                 </div>
                 <div class="post-stats">
-                  <span class="views">19 views</span>
+                  <span class="likes">19 likes</span>
                   <span class="comments">3 comments</span>
                 </div>
               </div>
@@ -38,6 +40,15 @@
 <script>
 export default {
   name: "Search",
+  methods: {
+    toRedirectResponse() {
+      this.$router.push('/response');
+    },
+
+    toRedirectUser() {
+      this.$router.push('/user');
+    }
+  }
 };
 </script>
 
@@ -75,10 +86,12 @@ export default {
 .user-name {
   color: #343a40;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .post-time {
   color: #6c757d;
+  font-size: 14px;
 }
 
 .post-title {
@@ -101,7 +114,6 @@ export default {
 
 .tags {
   display: flex;
-  cursor: pointer;
 }
 
 .tag {
@@ -118,7 +130,7 @@ export default {
   align-items: end;
 }
 
-.post-stats .views {
+.post-stats .likes {
   margin-right: 10px;
 }
 

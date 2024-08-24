@@ -5,36 +5,19 @@
     <span @click="$router.push('/')" class="close">
         <ion-icon name="close-circle-outline"></ion-icon>
     </span>
-    <section class="container-login">
-        <div class="login-content">
-            <div class="login-left">
-                <img class="login-banner" src="../../assets/banner.svg" alt="Logo">
-            </div>
-            <div class="login-right">
-                <div class="card-login">
+    <section class="container-forgot">
+        <div class="forgot-content">
+            <div class="forgot-right">
+                <div class="card-forgot">
                     <div class="card-body">
-                        <h3 class="login-title">SIGN IN</h3>
-                        <form @submit.prevent="login">
-                            <div class="form-group form-login">
+                        <h3 class="forgot-title">RECOVER YOUR PASSWORD</h3>
+                        <form @submit.prevent="forgot">
+                            <div class="form-group form-forgot">
                                 <label for="email">Email</label>
                                 <input v-model="email" type="email" id="email" placeholder="name@example.com" required>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input v-model="password" type="password" id="password" placeholder="password" required>
-                            </div>
-                            <div class="form-group form-check">
-                                <input v-model="rememberMe" type="checkbox" id="remember_me">
-                                <label for="remember_me">Keep me logged in</label>
-                            </div>
-                            <button class="btn-login" type="submit">LOG IN</button>
+                            <button class="btn-forgot" type="submit">SEND</button>
                         </form>
-                        <p class="signup-link">
-                            Don't have an account?
-                            <router-link to="/register" class="router-link">Sign up</router-link>
-                        </p>
-                        <router-link class="forgot-password-link" to="/forgot-password">Forgot your
-                            password?</router-link>
                     </div>
                 </div>
             </div>
@@ -45,7 +28,7 @@
 
 <script>
 export default {
-    name: 'Login',
+    name: 'ForgotPasswordPage',
     methods: {
         redirectToHome() {
             this.$router.push('/');
@@ -89,7 +72,7 @@ export default {
     color: #00da88 !important;
 }
 
-.container-login {
+.container-forgot {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,39 +82,39 @@ export default {
     /* Adjust to match your design */
 }
 
-.login-content {
+.forgot-content {
     display: flex;
     max-width: 1200px;
     width: 100%;
 }
 
-.login-left {
+.forgot-left {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-banner {
+.forgot-banner {
     max-width: 500px;
     height: auto;
     border-radius: 8px;
 }
 
-.login-right {
+.forgot-right {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.card-login {
+.card-forgot {
     background-color: white;
     border-radius: 0px;
     padding: 20px;
     width: 100%;
     max-width: 400px;
-    height: 470px;
+    height: 270px;
 }
 
 .card-body {
@@ -139,7 +122,7 @@ export default {
     flex-direction: column;
 }
 
-.login-title {
+.forgot-title {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
@@ -170,7 +153,7 @@ export default {
     padding: 0;
 }
 
-.form-group.form-login {
+.form-group.form-forgot {
     margin-bottom: 20px;
 }
 
@@ -186,7 +169,7 @@ export default {
 }
 
 
-.btn-login {
+.btn-forgot {
     width: 100%;
     padding: 12px;
     background-color: #000;
@@ -199,7 +182,7 @@ export default {
     transition: all 0.3s ease;
 }
 
-.btn-login:hover {
+.btn-forgot:hover {
     background-color: #fff;
     border: 1px solid #000;
     color: #000;
@@ -231,7 +214,7 @@ export default {
 }
 
 @media screen and (max-width: 790px) {
-    .login-left {
+    .forgot-left {
         display: none !important;
     }
 
@@ -241,7 +224,6 @@ export default {
 
     .close {
         right: 20px;
-        top: 25px;
     }
 }
 </style>

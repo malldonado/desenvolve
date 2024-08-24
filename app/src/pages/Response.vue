@@ -41,7 +41,7 @@ export default {
 .container {
   display: flex;
   height: 100% !important;
-  padding: 0;
+  padding: 0 8px !important;
 }
 
 .main-body {
@@ -57,7 +57,7 @@ export default {
 
 @media screen and (max-width: 790px) {
   .container {
-    padding: 0 8px;
+    padding: 8px !important;
   }
 }
 </style>

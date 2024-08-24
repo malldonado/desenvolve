@@ -244,6 +244,7 @@ export default {
 
   .close {
     right: 20px;
+    top: 25px;
   }
 }
 </style>

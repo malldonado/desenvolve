@@ -1,53 +1,73 @@
 <template>
-    <div class="inner-main-body">
-      <div class="card">
-        <div class="card-body">
-          <div class="forum-item">
-            <a href="#" @click="toggleCollapse">
-              <img src="../../assets/avatar.svg" class="avatar" alt="User" />
-            </a>
-            <div class="forum-item-body">
-              <div>
-                <a href="#" @click="toggleCollapse" class="user-name">Matheus Maldonado</a>
-                <p class="post-time">Publicado há 5 minutos</p>
-              </div>
-              <a href="#" class="post-title"><strong>How to declare a variable in PHP?</strong></a>
-              <p class="post-description">
-                To declare a variable in PHP, you use the dollar sign ($) followed by the variable name and an
-                optional assignment of a value. For example:
-              </p>
-              <div class="post-meta">
-                <div class="tags">
-                  <div class="tag">golang</div>
-                  <div class="tag">php</div>
-                  <div class="tag">java</div>
-                </div>
-              </div>
+  <div class="inner-main-body">
+    <div class="card">
+      <div class="card-body">
+        <a class="nav-link-heart" @click="toggleColor" :class="{'red-button': isRed}">
+          <ion-icon class="heart-outline" name="heart-outline"></ion-icon>
+        </a>
+        <div class="forum-item">
+          <a href="#" @click.prevent="toRedirectUser">
+            <img src="../../assets/avatar.svg" class="avatar" alt="User" />
+          </a>
+          <div class="forum-item-body">
+            <div>
+              <a href="#" @click.prevent="toRedirectUser" class="user-name"
+                >Matheus Maldonado</a
+              >
+              <p class="post-time">Published 5 minutes ago</p>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-two">
-        <div class="card-body">
-          <div class="forum-item">
-            <a href="#" @click="toggleCollapse">
-              <img src="../../assets/avatar.svg" class="avatar" alt="User" />
-            </a>
-            <div class="forum-item-body">
-              <div>
-                <a href="#" @click="toggleCollapse" class="user-name">Matheus Maldonado</a>
-                <p class="post-time">Publicado há 5 minutos</p>
+            <a href="#" @click.prevent="toRedirectResponse" class="post-title"
+              ><strong>How to declare a variable in PHP?</strong></a
+            >
+            <p
+              href="#"
+              @click.prevent="toRedirectResponse"
+              class="post-description"
+            >
+              To declare a variable in PHP, you use the dollar sign ($) followed
+              by the variable name and an optional assignment of a value. For
+              example:
+            </p>
+            <div class="post-meta">
+              <div class="tags">
+                <div class="tag">golang</div>
+                <div class="tag">php</div>
+                <div class="tag">java</div>
               </div>
-              <p class="post-description">
-                To declare a variable in PHP, you use the dollar sign ($) followed by the variable name and an
-                optional assignment of a value. For example:
-              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div :class="{ 'editor-container': !isFullscreen, 'editor-container-fullscreen': isFullscreen }">
+    <div class="card-two">
+      <div class="card-body">
+        <div class="forum-item">
+          <a href="#" @click.prevent="toRedirectUser">
+            <img src="../../assets/avatar.svg" class="avatar" alt="User" />
+          </a>
+          <div class="forum-item-body">
+            <div>
+              <a href="#" @click.prevent="toRedirectUser" class="user-name"
+                >Matheus Maldonado</a
+              >
+              <p class="post-time">Published 5 minutes ago</p>
+            </div>
+            <p class="post-description">
+              To declare a variable in PHP, you use the dollar sign ($) followed
+              by the variable name and an optional assignment of a value. For
+              example:
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    :class="{
+      'editor-container': !isFullscreen,
+      'editor-container-fullscreen': isFullscreen,
+    }"
+  >
     <form @submit.prevent="submitPost">
       <div class="editor-toolbar">
         <button
@@ -145,7 +165,7 @@
           <i :class="isFullscreen ? 'fas fa-compress' : 'fas fa-expand'"></i>
         </button>
       </div>
-      <input class="title-input" type="text" placeholder="Título">
+      <input class="title-input" type="text" placeholder="Title" />
       <div
         ref="editor"
         class="editor-content"
@@ -154,6 +174,9 @@
         @keydown.tab.prevent="insertTab"
       ></div>
       <button type="submit" class="submit-button">Post</button>
+      <button type="submit" class="submit-button resolved-button">
+        Resolved
+      </button>
     </form>
   </div>
 </template>
@@ -164,6 +187,7 @@ export default {
     return {
       content: "",
       isFullscreen: false,
+      isRed: false, //status zero
     };
   },
   methods: {
@@ -202,6 +226,16 @@ export default {
     toggleFullscreen() {
       this.isFullscreen = !this.isFullscreen;
       document.body.classList.toggle("editor-fullscreen", this.isFullscreen);
+    },
+    toRedirectResponse() {
+      this.$router.push("/response");
+    },
+
+    toRedirectUser() {
+      this.$router.push("/user");
+    },
+    toggleColor() {
+      this.isRed = !this.isRed; // Alterna a cor
     },
   },
 };
@@ -249,10 +283,12 @@ export default {
 .user-name {
   color: #343a40;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .post-time {
   color: #6c757d;
+  font-size: 14px;
 }
 
 .post-title {
@@ -275,7 +311,6 @@ export default {
 
 .tags {
   display: flex;
-  cursor: pointer;
 }
 
 .tag {
@@ -451,5 +486,24 @@ export default {
 
 .editor-content:focus {
   outline: none !important;
+}
+
+.resolved-button {
+  margin-left: 10px;
+}
+
+.heart-outline {
+  position: absolute;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.nav-link-heart {
+  color: #00ce81;
+}
+
+.red-button {
+  color: red;
 }
 </style>

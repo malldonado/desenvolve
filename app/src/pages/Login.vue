@@ -1,3 +1,4 @@
+<!-- LoginPage.vue -->
 <template>
   <div>
     <Login />
@@ -11,7 +12,7 @@ export default {
   name: "LoginPage",
   components: {
     Login
-  },
+  }
 };
 </script>
 

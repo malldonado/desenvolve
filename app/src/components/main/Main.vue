@@ -1,61 +1,55 @@
 <template>
-    <div class="inner-main-body">
-      <div class="card">
-        <div class="card-body">
-          <div class="forum-item">
-            <a href="#" @click="toggleCollapse">
-              <img src="../../assets/avatar.svg" class="avatar" alt="User" />
-            </a>
-            <div class="forum-item-body">
-              <div>
-                <a href="#" @click="toggleCollapse" class="user-name">Matheus Maldonado</a>
-                <p class="post-time">Publicado há 5 minutos</p>
-              </div>
-              <a href="#" class="post-title"><strong>How to declare a variable in PHP?</strong></a>
-              <p class="post-description">
+  <div class="inner-main-body">
+    <div class="card">
+      <div class="card-body">
+        <div class="forum-item">
+          <a href="#" @click.prevent="toRedirectUser">
+            <img src="../../assets/avatar.svg" class="avatar" alt="User" />
+          </a>
+          <div class="forum-item-body">
+            <div>
+              <a class="user-name" href="#" @click.prevent="toRedirectUser">Matheus Maldonado</a>
+              <p class="post-time">Published 5 minutes ago</p>
+            </div>
+            <span>
+              <a href="#" @click.prevent="toRedirectResponse" class="post-title">
+                <strong>How to declare a variable in PHP?</strong>
+              </a>
+              <p href="#" @click.prevent="toRedirectResponse" class="post-description">
                 To declare a variable in PHP, you use the dollar sign ($) followed by the variable name and an
                 optional assignment of a value. For example:
               </p>
-              <div class="post-meta">
-                <div class="tags">
-                  <div class="tag">golang</div>
-                  <div class="tag">php</div>
-                  <div class="tag">java</div>
-                </div>
-                <div class="post-stats">
-                  <span class="views">19 views</span>
-                  <span class="comments">3 comments</span>
-                </div>
+            </span>
+            <div class="post-meta">
+              <div class="tags">
+                <div class="tag">golang</div>
+                <div class="tag">php</div>
+                <div class="tag">java</div>
+              </div>
+              <div class="post-stats">
+                <span class="likes">19 likes</span>
+                <span class="comments">3 comments</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Other cards -->
     </div>
+    <!-- Other cards -->
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      isModalOpen: false,
-    };
-  },
   methods: {
-    toggleSidebar() {
-      // Implement toggle sidebar logic
+    toRedirectResponse() {
+      this.$router.push('/response');
     },
-    toggleCollapse() {
-      // Implement toggle collapse logic
-    },
-    openModal() {
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-    },
-  },
+
+    toRedirectUser() {
+      this.$router.push('/user');
+    }
+  }
 };
 </script>
 
@@ -93,10 +87,12 @@ export default {
 .user-name {
   color: #343a40;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .post-time {
   color: #6c757d;
+  font-size: 14px;
 }
 
 .post-title {
@@ -108,7 +104,7 @@ export default {
 
 .post-description {
   color: #000;
-  margin-top: 5px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -119,7 +115,6 @@ export default {
 
 .tags {
   display: flex;
-  cursor: pointer;
 }
 
 .tag {
@@ -136,7 +131,7 @@ export default {
   align-items: end;
 }
 
-.post-stats .views {
+.post-stats .likes {
   margin-right: 10px;
 }
 
@@ -209,5 +204,4 @@ export default {
     margin-top: 15px;
   }
 }
-
 </style>

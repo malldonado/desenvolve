@@ -15,7 +15,7 @@
 
 <script>
 import Navbar from "../components/navbar/Navbar.vue";
-import Question from "../components/question/Question.vue";
+import Question from "../components/post/Post.vue";
 import Sidebar from "../components/sidebar/Sidebar.vue";
 
 export default {

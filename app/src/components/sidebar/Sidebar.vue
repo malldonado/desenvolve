@@ -42,7 +42,7 @@ export default {
   name: 'Sidebar',
   methods: {
     createDiscussion() {
-      this.$router.push('/question');
+      this.$router.push('/post');
     }
   }
 }

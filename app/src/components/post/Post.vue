@@ -97,14 +97,30 @@
           <i :class="isFullscreen ? 'fas fa-compress' : 'fas fa-expand'"></i>
         </button>
       </div>
-      <input class="title-input" type="text" placeholder="Título">
+      <input class="title-input" type="text" placeholder="Title">
       <div
         ref="editor"
         class="editor-content"
+        placeholder="Content here..."
         contenteditable
         @input="updateContent"
         @keydown.tab.prevent="insertTab"
       ></div>
+      <div class="tags-container">
+        <div class="tags-list">
+          <span v-for="(tag, index) in tags" :key="index" class="tag">
+            {{ tag }}
+            <button type="button" class="remove-tag" @click="removeTag(index)">×</button>
+          </span>
+        </div>
+        <input
+          class="tags-input"
+          type="text"
+          placeholder="Tags"
+          v-model="newTag"
+          @keyup.enter="addTag"
+        >
+      </div>
       <button type="submit" class="submit-button">Post</button>
     </form>
   </div>
@@ -117,6 +133,8 @@ export default {
     return {
       content: "",
       isFullscreen: false,
+      newTag: "",
+      tags: [],
     };
   },
   methods: {
@@ -144,17 +162,28 @@ export default {
     updateContent() {
       this.content = this.$refs.editor.innerHTML;
     },
-    submitPost() {
-      // Aqui você pode enviar o conteúdo para um servidor ou processá-lo conforme necessário
-      console.log("Conteúdo do Post:", this.content);
-      alert("Post publicado com sucesso!");
-      // Limpar o editor após o envio
-      this.$refs.editor.innerHTML = "";
-      this.content = "";
-    },
+    // submitPost() {
+    //   console.log("Conteúdo do Post:", this.content);
+    //   console.log("Tags:", this.tags);
+    //   alert("Post publicado com sucesso!");
+    //   this.$refs.editor.innerHTML = "";
+    //   this.content = "";
+    //   this.tags = [];
+    //   this.newTag = "";
+    // },
     toggleFullscreen() {
       this.isFullscreen = !this.isFullscreen;
       document.body.classList.toggle("editor-fullscreen", this.isFullscreen);
+    },
+    addTag() {
+      const tag = this.newTag.trim();
+      if (tag && !this.tags.includes(tag)) {
+        this.tags.push(tag);
+      }
+      this.newTag = "";
+    },
+    removeTag(index) {
+      this.tags.splice(index, 1);
     },
   },
 };
@@ -230,6 +259,55 @@ export default {
 }
 
 .title-input:focus {
+  outline: none !important;
+}
+
+.tags-container {
+  margin-top: 15px;
+  padding: 0;
+}
+
+.tags-list {
+  margin-bottom: 5px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e5e7eb;
+  color: #1f2937;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  margin-right: 5px;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.remove-tag {
+  background: none;
+  border: none;
+  color: #ff0000;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 0.3rem;
+}
+
+.remove-tag:hover {
+  color: #c70000;
+}
+
+.tags-input {
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+}
+
+.tags-input:focus {
   outline: none !important;
 }
 
