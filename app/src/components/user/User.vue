@@ -49,10 +49,12 @@ export default {
 </script>
 
 <style scoped>
+
 .container {
     display: flex;
     justify-content: center;
-    padding: 2rem 0;
+    align-items: center;
+    padding: 0rem 1rem !important;
 }
 
 .profile {

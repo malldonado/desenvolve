@@ -15,13 +15,33 @@
           <div class="card-body">
             <h3 class="register-title">REGISTER</h3>
             <form @submit.prevent="register">
-              <div class="form-group form-register">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  v-model="name"
+                  type="name"
+                  id="name"
+                  placeholder="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  v-model="username"
+                  type="username"
+                  id="username"
+                  placeholder="username"
+                  required
+                />
+              </div>
+              <div class="form-group">
                 <label for="email">Email</label>
                 <input
                   v-model="email"
                   type="email"
                   id="email"
-                  placeholder="name@example.com"
+                  placeholder="email"
                   required
                 />
               </div>
@@ -34,10 +54,6 @@
                   placeholder="password"
                   required
                 />
-              </div>
-              <div class="form-group form-check">
-                <input v-model="rememberMe" type="checkbox" id="remember_me" />
-                <label for="remember_me">Agree with Terms & Conditions</label>
               </div>
               <button class="btn-register" type="submit">REGISTER</button>
             </form>
@@ -53,12 +69,61 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+  name: "Register",
+  data() {
+    return {
+      name: "",
+      username: "",
+      email: "",
+      password: ""
+    };
+  },
   methods: {
-        redirectToHome() {
-            this.$router.push('/');
+    async register() {
+      const apiUrl = 'http://localhost:3333/users';
+      
+      console.log("Registering with data:", {
+        name: this.name,
+        username: this.username,
+        email: this.email,
+        password: this.password
+      });
+
+      try {
+        const response = await axios.post(
+          `${apiUrl}`,
+          {
+            name: this.name,
+            username: this.username,
+            email: this.email,
+            password: this.password,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        console.log("Response data:", response.data);
+
+        if (response.status === 200) {
+          this.$router.push("/login");
+        } else {
+          console.error("Registration error:", response.data.message);
         }
-    }
+      } catch (error) {
+        if (error.response) {
+          console.error("Network error:", error.response.data);
+        } else {
+          console.error("Network error:", error.message);
+        }
+      }
+    },
+  },
 };
 </script>
 
@@ -120,6 +185,7 @@ export default {
   max-width: 500px;
   height: auto;
   border-radius: 8px;
+  height: 400px;
 }
 
 .register-right {
@@ -135,7 +201,7 @@ export default {
   padding: 20px;
   width: 100%;
   max-width: 400px;
-  height: 470px;
+  height: 550px;
 }
 
 .card-body {
@@ -150,7 +216,7 @@ export default {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .form-group label {
@@ -174,10 +240,6 @@ export default {
   padding: 0;
 }
 
-.form-group.form-register {
-  margin-bottom: 20px;
-}
-
 .form-group.form-check input#remember_me {
   margin-right: 5px;
   width: 15px;
@@ -199,6 +261,7 @@ export default {
   font-size: 16px;
   border: 1px solid #000;
   cursor: pointer;
+  margin-top: 10px;
   transition: all 0.3s ease;
 }
 
@@ -233,7 +296,7 @@ export default {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 900px) {
   .register-left {
     display: none !important;
   }

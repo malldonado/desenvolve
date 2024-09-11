@@ -9,11 +9,18 @@
         <button @click.prevent="redirectToSearch" class="btn btn-outline-light custom-button">
           <ion-icon name="search-outline"></ion-icon>
         </button>
-        <router-link to="/login">
-          <button class="btn btn-outline-light custom-button">
-            <ion-icon name="person-outline"></ion-icon>
+        <div @click.prevent="redirectToProfile" class="navbar-user" v-if="userName">
+          <button @click.prevent="redirectToLogin" class="btn btn-outline-light custom-button-login">
+            <img src="../../assets/avatar.svg" class="avatar" alt="User" />
           </button>
-        </router-link>
+        </div>
+        <div v-else>
+            <router-link to="/login">
+              <button @click.prevent="redirectToLogin" class="btn btn-outline-light custom-button">
+                <ion-icon name="person-outline"></ion-icon>
+              </button>
+            </router-link>
+        </div>
       </form>
     </div>
   </nav>
@@ -21,12 +28,40 @@
 
 <script>
 export default {
+  name: 'Navbar',
+  data() {
+    return {
+      userName: null,
+    };
+  },
+  created() {
+    this.checkAuth();
+  },
   methods: {
+    checkAuth() {
+      const token = localStorage.getItem('token');
+      const userName = localStorage.getItem('userName');
+
+      if (!token) {
+        // Redirect to login if no token
+        this.$router.push('/login');
+      } else {
+        // Set userName if token is present
+        this.userName = userName;
+        // You might also want to verify the token with an API call here
+      }
+    },
     redirectToHome() {
       this.$router.push("/");
     },
     redirectToSearch() {
       this.$router.push("/search");
+    },
+    redirectToProfile() {
+      this.$router.push("/user");
+    },
+    redirectToLogin() {
+      this.$router.push("/login");
     },
   },
 };
@@ -87,12 +122,35 @@ export default {
   box-shadow: none;
 }
 
+.navbar-user {
+  color: #fff;
+  font-size: 15px;
+}
+
 .custom-button {
   margin-left: 0;
   border: none;
   display: flex;
   align-items: center;
   border-radius: 0;
+  border-color: transparent !important;
+}
+
+.custom-button-login {
+  margin-left: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  border-color: transparent !important;
+  background-color: transparent;
+  color: #fff;
+  width: 55px;
+}
+
+.custom-button-login:focus {
+  box-shadow: none !important;
+  background-color: #000 !important;
   border-color: transparent !important;
 }
 
@@ -104,6 +162,12 @@ export default {
 .custom-button:focus {
   box-shadow: none !important;
   border-color: transparent !important;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 790px) {
