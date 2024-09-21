@@ -2,6 +2,7 @@ import { getCustomRepository } from 'typeorm';
 import { PostRepository } from '../typeorm/respositories/PostsRepository';
 import Post from '../typeorm/entities/Post';
 import AppError from '@shared/errors/AppError';
+import RedisCache from '@shared/cache/RedisCache';
 
 interface IRequest {
   id: string;
@@ -26,6 +27,10 @@ class UpdatePostService {
     const postsRepository = getCustomRepository(PostRepository);
     const post = await postsRepository.findOne(id);
     if (!post) throw new AppError('Post not found.');
+
+    const redisCache = new RedisCache();
+    await redisCache.invalidate('api-desenvolve-posts');
+
     post.title = title;
     post.content = content;
     post.is_edited = is_edited;

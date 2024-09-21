@@ -1,6 +1,7 @@
 import { getCustomRepository } from 'typeorm';
 import { PostRepository } from '../typeorm/respositories/PostsRepository';
 import Post from '../typeorm/entities/Post';
+import RedisCache from '@shared/cache/RedisCache';
 
 interface IRequest {
   title: string;
@@ -21,6 +22,7 @@ class CreatePostService {
     status,
   }: IRequest): Promise<Post> {
     const postsRepository = getCustomRepository(PostRepository);
+    const redisCache = new RedisCache();
     const post = postsRepository.create({
       title,
       content,
@@ -29,7 +31,11 @@ class CreatePostService {
       replies_count,
       status,
     });
+
+    await redisCache.invalidate('api-desenvolve-posts');
+
     await postsRepository.save(post);
+
     return post;
   }
 }
