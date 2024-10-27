@@ -97,7 +97,7 @@
           <i :class="isFullscreen ? 'fas fa-compress' : 'fas fa-expand'"></i>
         </button>
       </div>
-      <input class="title-input" type="text" placeholder="Title">
+      <input class="title-input" type="text" placeholder="Título">
       <div
         ref="editor"
         class="editor-content"
@@ -121,7 +121,7 @@
           @keyup.enter="addTag"
         >
       </div>
-      <button type="submit" class="submit-button">Post</button>
+      <button type="submit" class="submit-button">Postar</button>
     </form>
   </div>
 </template>

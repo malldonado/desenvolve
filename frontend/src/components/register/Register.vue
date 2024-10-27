@@ -13,10 +13,10 @@
       <div class="register-right">
         <div class="card-register">
           <div class="card-body">
-            <h3 class="register-title">REGISTER</h3>
+            <h3 class="register-title">REGISTRAR</h3>
             <form @submit.prevent="register">
               <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nome</label>
                 <input
                   v-model="name"
                   type="name"
@@ -26,7 +26,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="username">Username</label>
+                <label for="username">Usuário</label>
                 <input
                   v-model="username"
                   type="username"
@@ -46,7 +46,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Senha</label>
                 <input
                   v-model="password"
                   type="password"
@@ -55,11 +55,11 @@
                   required
                 />
               </div>
-              <button class="btn-register" type="submit">REGISTER</button>
+              <button class="btn-register" type="submit">REGISTRAR</button>
             </form>
             <p class="signup-link">
-              I Already have an account
-              <router-link class="router-link" to="/login">Sign in</router-link>
+              Eu já tenho uma conta
+              <router-link class="router-link" to="/login">Login</router-link>
             </p>
           </div>
         </div>

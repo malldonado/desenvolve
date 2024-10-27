@@ -14,7 +14,7 @@
               <a href="#" @click.prevent="toRedirectUser" class="user-name"
                 >Matheus Maldonado</a
               >
-              <p class="post-time">Published 5 minutes ago</p>
+              <p class="post-time">Publicado há 5 minutos</p>
             </div>
             <a href="#" @click.prevent="toRedirectResponse" class="post-title"
               ><strong>How to declare a variable in PHP?</strong></a
@@ -30,9 +30,8 @@
             </p>
             <div class="post-meta">
               <div class="tags">
-                <div class="tag">golang</div>
                 <div class="tag">php</div>
-                <div class="tag">java</div>
+                <div class="tag">laravel</div>
               </div>
             </div>
           </div>
@@ -50,7 +49,7 @@
               <a href="#" @click.prevent="toRedirectUser" class="user-name"
                 >Matheus Maldonado</a
               >
-              <p class="post-time">Published 5 minutes ago</p>
+              <p class="post-time">Publicado há 5 minutos</p>
             </div>
             <p class="post-description">
               To declare a variable in PHP, you use the dollar sign ($) followed
@@ -173,9 +172,9 @@
         @input="updateContent"
         @keydown.tab.prevent="insertTab"
       ></div>
-      <button type="submit" class="submit-button">Post</button>
+      <button type="submit" class="submit-button">Postar</button>
       <button type="submit" class="submit-button resolved-button">
-        Resolved
+        Resolvido
       </button>
     </form>
   </div>

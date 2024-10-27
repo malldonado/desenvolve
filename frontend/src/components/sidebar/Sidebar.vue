@@ -3,34 +3,34 @@
     <header class="inner-sidebar-header">
       <button @click="createDiscussion" class="btn-discussion">
         <ion-icon name="add-circle-outline"></ion-icon>
-        New Discussion
+        Nova Discussão
       </button>
     </header>
     <nav class="inner-sidebar-body">
       <ul class="nav-pills">
         <li><a href="#" class="nav-link active">
-          <ion-icon name="apps-outline"></ion-icon> All Threads
+          <ion-icon name="apps-outline"></ion-icon> Todos os tópicos
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="calendar-outline"></ion-icon> Popular this week
+          <ion-icon name="calendar-outline"></ion-icon> Popular esta semana
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="chatbubbles-outline"></ion-icon> Popular all time
+          <ion-icon name="chatbubbles-outline"></ion-icon> Popular de todos os tempos
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="checkmark-circle-outline"></ion-icon> Solved
+          <ion-icon name="checkmark-circle-outline"></ion-icon> Resolvidos
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="close-circle-outline"></ion-icon> Unsolved
+          <ion-icon name="close-circle-outline"></ion-icon> Não resolvidos
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="timer-outline"></ion-icon> No replies yet
+          <ion-icon name="timer-outline"></ion-icon> Nenhuma resposta ainda
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="help-outline"></ion-icon> Your question
+          <ion-icon name="help-outline"></ion-icon> Sua pergunta
         </a></li>
         <li><a href="#" class="nav-link">
-          <ion-icon name="document-outline"></ion-icon> Your answers
+          <ion-icon name="document-outline"></ion-icon> Suas respostas
         </a></li>
       </ul>
     </nav>

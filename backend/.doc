@@ -3,4 +3,8 @@ yarn typeorm migration:run
 
 **Docker**
 1 - docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
-2 - docker start postgres
+
+**RUNNING**
+1 - docker start postgres
+2 - docker start redis
+3 - docker start redis-client

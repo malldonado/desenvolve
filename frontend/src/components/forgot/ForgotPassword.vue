@@ -10,13 +10,13 @@
             <div class="forgot-right">
                 <div class="card-forgot">
                     <div class="card-body">
-                        <h3 class="forgot-title">RECOVER YOUR PASSWORD</h3>
+                        <h3 class="forgot-title">RECUPERAR SUA SENHA</h3>
                         <form @submit.prevent="forgot">
                             <div class="form-group form-forgot">
                                 <label for="email">Email</label>
                                 <input v-model="email" type="email" id="email" placeholder="name@example.com" required>
                             </div>
-                            <button class="btn-forgot" type="submit">SEND</button>
+                            <button class="btn-forgot" type="submit">ENVIAR</button>
                         </form>
                     </div>
                 </div>

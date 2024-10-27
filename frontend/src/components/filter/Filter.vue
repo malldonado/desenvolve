@@ -5,14 +5,14 @@
         <i class="material-icons">arrow_forward_ios</i>
       </a>
       <select class="custom-select">
-        <option selected>Latest</option>
+        <option selected>Mais recente</option>
         <option value="1">Popular</option>
-        <option value="2">Solved</option>
-        <option value="3">Unsolved</option>
-        <option value="4">No Replies Yet</option>
+        <option value="2">Resolvidos</option>
+        <option value="3">Não resolvidos</option>
+        <option value="4">Nenhuma resposta ainda</option>
       </select>
       <select class="custom-select">
-        <option value="" selected>Select a language</option>
+        <option value="" selected>Selecione a linguagem</option>
         <option value="1">Ada</option>
         <option value="2">Assembly</option>
         <option value="3">Bash</option>

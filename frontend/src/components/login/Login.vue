@@ -13,7 +13,7 @@
         <div class="login-right">
           <div class="card-login">
             <div class="card-body">
-              <h3 class="login-title">SIGN IN</h3>
+              <h3 class="login-title">LOGIN</h3>
               <form @submit.prevent="login">
                 <div class="form-group form-login">
                   <label for="email">Email</label>
@@ -37,18 +37,18 @@
                 </div>
                 <div class="form-group form-check">
                   <input v-model="rememberMe" type="checkbox" id="remember_me" />
-                  <label for="remember_me">Keep me logged in</label>
+                  <label for="remember_me">Mantenha-me conectado</label>
                 </div>
-                <button class="btn-login" type="submit">LOG IN</button>
+                <button class="btn-login" type="submit">LOGIN</button>
               </form>
               <p class="signup-link">
-                Don't have an account?
+                Não tem uma conta?
                 <router-link to="/register" class="router-link"
-                  >Sign up</router-link
+                  >Registrar</router-link
                 >
               </p>
               <router-link class="forgot-password-link" to="/forgot-password"
-                >Forgot your password?</router-link
+                >Esqueceu sua senha?</router-link
               >
             </div>
           </div>

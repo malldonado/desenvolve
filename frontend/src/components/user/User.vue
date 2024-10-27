@@ -18,7 +18,7 @@
                             <input type="email" id="email" v-model="email" placeholder="email@example.com" />
                         </div>
                         <div class="form-group">
-                            <label for="email">Username</label>
+                            <label for="email">Usuário</label>
                             <input type="email" id="email" v-model="email" placeholder="username" />
                         </div>
                         <div class="password-change">
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn-submit">Save</button>
+                        <button type="submit" class="btn-submit">Salvar</button>
                     </form>
                 </div>
             </div>
@@ -44,9 +44,19 @@
 <script>
 
 export default {
-
+    name: 'User',
+    data() {
+      return {
+        name: '',
+        username: '',
+        email: '',
+        password: '',
+      };
+    },
 }
 </script>
+
+<!-- http://localhost:3333/profile -->
 
 <style scoped>
 

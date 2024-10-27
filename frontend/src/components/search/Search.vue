@@ -20,13 +20,12 @@
               </p>
               <div class="post-meta">
                 <div class="tags">
-                  <div class="tag">golang</div>
                   <div class="tag">php</div>
-                  <div class="tag">java</div>
+                  <div class="tag">laravel</div>
                 </div>
                 <div class="post-stats">
-                  <span class="likes">19 likes</span>
-                  <span class="comments">3 comments</span>
+                  <span class="likes">19 curtidas</span>
+                  <span class="comments">3 comentários</span>
                 </div>
               </div>
             </div>

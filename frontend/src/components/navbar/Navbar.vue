@@ -5,7 +5,7 @@
         <img src="../../assets/logo.svg" alt="Logo" />
       </a>
       <form class="custom-form-inline">
-        <input class="form-control custom-form-input" type="search" placeholder="search now..." aria-label="search" />
+        <input class="form-control custom-form-input" type="search" placeholder="pesquise agora..." aria-label="search" />
         <button @click.prevent="redirectToSearch" class="btn btn-outline-light custom-button">
           <ion-icon name="search-outline"></ion-icon>
         </button>
