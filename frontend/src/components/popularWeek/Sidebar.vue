@@ -8,10 +8,10 @@
     </header>
     <nav class="inner-sidebar-body">
       <ul class="nav-pills">
-        <li><router-link :to="'/'" class="nav-link active">
+        <li><router-link :to="'/'" class="nav-link">
           <ion-icon name="apps-outline"></ion-icon> Todos os tópicos
         </router-link></li>
-        <li><router-link :to="'/popular-this-week'" class="nav-link">
+        <li><router-link :to="'/popular-this-week'" class="nav-link active">
           <ion-icon name="calendar-outline"></ion-icon> Popular esta semana
         </router-link></li>
         <li><router-link :to="'/popular-all-time'" class="nav-link">

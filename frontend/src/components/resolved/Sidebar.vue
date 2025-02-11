@@ -8,7 +8,7 @@
     </header>
     <nav class="inner-sidebar-body">
       <ul class="nav-pills">
-        <li><router-link :to="'/'" class="nav-link active">
+        <li><router-link :to="'/'" class="nav-link">
           <ion-icon name="apps-outline"></ion-icon> Todos os tópicos
         </router-link></li>
         <li><router-link :to="'/popular-this-week'" class="nav-link">
@@ -17,7 +17,7 @@
         <li><router-link :to="'/popular-all-time'" class="nav-link">
           <ion-icon name="chatbubbles-outline"></ion-icon> Popular de todos os tempos
         </router-link></li>
-        <li><router-link :to="'/resolved'" class="nav-link">
+        <li><router-link :to="'/resolved'" class="nav-link active">
           <ion-icon name="checkmark-circle-outline"></ion-icon> Resolvidos
         </router-link></li>
         <li><router-link :to="'/not-resolved'" class="nav-link">

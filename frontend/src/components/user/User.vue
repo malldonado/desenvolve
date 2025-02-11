@@ -8,18 +8,18 @@
                             <img src="../../assets/avatar.svg" class="avatar-img" alt="User Avatar" />
                         </div>
                         <div class="user-details">
-                            <h4 class="user-name"><strong>Matheus Maldonado</strong></h4>
-                            <p class="user-handle">@matheusmaldonado</p>
+                            <h4 class="user-name"><strong>{{ name }}</strong></h4>
+                            <p class="user-handle">@{{ username }}</p>
                         </div>
                     </div>
                     <form @submit.prevent="updateUser" class="form">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" v-model="email" placeholder="email@example.com" />
+                            <input type="email" id="email" v-model="email" placeholder="email@example.com" required />
                         </div>
                         <div class="form-group">
-                            <label for="email">Usuário</label>
-                            <input type="email" id="email" v-model="email" placeholder="username" />
+                            <label for="username">Usuário</label>
+                            <input type="text" id="username" v-model="username" placeholder="username" required />
                         </div>
                         <div class="password-change">
                             <div class="password-group">
@@ -42,24 +42,77 @@
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
     name: 'User',
     data() {
-      return {
-        name: '',
-        username: '',
-        email: '',
-        password: '',
-      };
+        return {
+            name: '',
+            username: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            avatar: '',
+        };
     },
+    async mounted() {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) throw new Error("Token não encontrado. Faça login novamente.");
+
+            const response = await axios.get('http://localhost:3333/profile', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            const user = response.data;
+            this.name = user.name;
+            this.username = user.username;
+            this.email = user.email;
+            this.avatar = user.avatar || this.defaultAvatar;
+
+        } catch (error) {
+            console.error("Erro ao buscar usuário:", error);
+        }
+    },
+    methods: {
+        async updateUser() {
+            if (this.password && this.password !== this.confirmPassword) {
+                alert("As senhas não coincidem!");
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) throw new Error("Token não encontrado. Faça login novamente.");
+
+                const updatedData = {
+                    name: this.name,
+                    username: this.username,
+                    email: this.email,
+                    ...(this.password && { password: this.password }), // Envia a senha apenas se for alterada
+                };
+
+                await axios.put('http://localhost:3333/profile', updatedData, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                alert("Perfil atualizado com sucesso!");
+
+            } catch (error) {
+                console.error("Erro ao atualizar usuário:", error);
+                alert("Erro ao atualizar perfil. Tente novamente.");
+            }
+        }
+    }
 }
 </script>
 
-<!-- http://localhost:3333/profile -->
-
 <style scoped>
-
 .container {
     display: flex;
     justify-content: center;
@@ -178,4 +231,3 @@ export default {
     }
 }
 </style>
-
